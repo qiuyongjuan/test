@@ -1,1 +1,16 @@
 git --version
+git config --global --edit
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
+
+初始化一个Git仓库，到指定文件夹下使用git init命令
+git init
+添加文件到Git仓库，分两步：
+git add git_test
+git commit -m "add new file"
+
+git status
+git diff git_test
+git add git_test
+git status
+git commit -m "change file"
