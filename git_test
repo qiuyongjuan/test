@@ -14,3 +14,5 @@ git diff git_test
 git add git_test
 git status
 git commit -m "change file"
+
+git log
