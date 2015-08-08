@@ -9,10 +9,27 @@ git init
 git add git_test
 git commit -m "add new file"
 
+进入仓库后
 git status
-git diff git_test
+git diff git_test 比较
 git add git_test
 git status
+git diff HEAD -- git_test   命令可以查看工作区和版本库里面最新版本的区别
 git commit -m "change file"
 
-git log
+git log  可以查看提交历史，以便确定要回退到哪个版本
+git reset --hard HEAD^       回退到上一个版本
+git reset --hard HEAD^^      回退到上上一个版本
+git reset --hard HEAD~100
+git reset --hard 3b62ded
+git reflog    查看命令历史，以便确定要回到未来的哪个版本
+
+工作区、版本库（暂存区、HEAD指向的master分支）
+
+git checkout -- git_test  可以丢弃工作区的修改,让这个文件回到最近一次git commit或git add时的状态
+git reset HEAD git_test  可以把暂存区的修改撤销掉（unstage），重新放回工作区
+场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，回退到上一版本，不过前提是没有推送到远程库。
+
+git rm git_test  用于删除一个文件
